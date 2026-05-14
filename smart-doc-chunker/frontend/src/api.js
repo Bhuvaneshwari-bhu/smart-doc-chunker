@@ -3,11 +3,11 @@ import axios from "axios";
 const client = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
     headers: { "Content-Type": "application/json" },
-    timeout: 60 _000,
+    timeout: 60000,
 });
 
 function extractError(err) {
-    const data = err.response ? .data;
+    const data = err.response && err.response.data;
     if (!data) return err.message || "Network error — is the backend running?";
     if (typeof data.detail === "string") return data.detail;
     if (Array.isArray(data.detail))
