@@ -15,9 +15,7 @@ import math
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
-
-from embedding_store import generate_embedding, cosine_similarity
+from src.embedding_store import generate_embedding, cosine_similarity
 
 # ---------------------------------------------------------------------------
 # Hardcoded test queries

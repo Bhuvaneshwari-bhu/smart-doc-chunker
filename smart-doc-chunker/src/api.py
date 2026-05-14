@@ -16,12 +16,12 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile, status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, field_validator
 
-from . import loader
-from . import cleaner
-from . import chunker
-from . import tokenizer
-from . import embedding_store
-from . import rag_chat
+from src import loader
+from src import cleaner
+from src import chunker
+from src import tokenizer
+from src import embedding_store
+from src import rag_chat
 
 # ---------------------------------------------------------------------------
 # Logging

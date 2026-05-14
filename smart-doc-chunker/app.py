@@ -1,16 +1,11 @@
-import sys
-import os
-
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
-
 import streamlit as st
 
-import loader
-import cleaner
-import chunker
-import tokenizer
-import embedding_store
-import rag_chat
+from src import loader
+from src import cleaner
+from src import chunker
+from src import tokenizer
+from src import embedding_store
+from src import rag_chat
 
 # ---------------------------------------------------------------------------
 # Page config

@@ -1,4 +1,4 @@
-from . import embedding_store
+from src import embedding_store
 
 
 def evaluate_system(

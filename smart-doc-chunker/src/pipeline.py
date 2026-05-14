@@ -3,10 +3,10 @@ import os
 import sys
 from datetime import datetime
 
-from . import loader
-from . import cleaner
-from . import chunker
-from . import tokenizer
+from src import loader
+from src import cleaner
+from src import chunker
+from src import tokenizer
 
 
 def run(config: dict) -> None:

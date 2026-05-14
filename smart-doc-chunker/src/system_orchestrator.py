@@ -16,15 +16,15 @@ embedding_store.cosine_similarity, then delegates to the leaf functions of
 rag_chat and evaluation — no logic is duplicated.
 """
 
-from . import loader
-from . import cleaner
-from . import chunker
-from . import tokenizer
-from . import embedding_store
-from . import rag_chat
-from . import evaluation
-from .metrics import Metrics
-from .embedding_provider import get_embedding_provider, EmbeddingProvider
+from src import loader
+from src import cleaner
+from src import chunker
+from src import tokenizer
+from src import embedding_store
+from src import rag_chat
+from src import evaluation
+from src.metrics import Metrics
+from src.embedding_provider import get_embedding_provider, EmbeddingProvider
 
 
 class RAGSystem:

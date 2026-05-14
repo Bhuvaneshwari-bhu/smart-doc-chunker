@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 
-import pipeline
+from src import pipeline
 
 # ---------------------------------------------------------------------------
 # Method routing table

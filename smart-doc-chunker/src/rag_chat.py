@@ -7,7 +7,7 @@ Drop-in replacement point: swap generate_answer() with any LLM call
 
 import re
 
-from .embedding_store import generate_embedding, cosine_similarity
+from src.embedding_store import generate_embedding, cosine_similarity
 
 # ---------------------------------------------------------------------------
 # Stopwords filtered out before keyword scoring
