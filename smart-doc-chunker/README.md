@@ -11,18 +11,28 @@
 
 ---
 
+## Live Demo
+
+- Frontend UI: https://smart-doc-chunker-77pk.vercel.app
+- Backend API: https://smart-doc-chunker.onrender.com
+- Swagger Docs: https://smart-doc-chunker.onrender.com/docs
+
+---
+
 ## What This Is
 
-Smart Doc Chunker is a **production-grade AI systems playground** that makes the internals of a RAG pipeline visible and interactive. Every stage — text cleaning, semantic chunking, deterministic embedding, cosine retrieval, and extraction-based answer synthesis — runs in real time and is rendered directly in the browser.
+Smart Doc Chunker is a **production-grade, full-stack AI engineering project** that exposes the internals of a complete Retrieval-Augmented Generation pipeline as an interactive playground. It implements two document chunking strategies — **recursive hierarchical splitting** (paragraph → sentence → greedy merge) and **sliding window with configurable overlap** — paired with a deterministic embedding engine, a cosine similarity retrieval pipeline, and an extraction-based answer synthesizer, all rendered live in the browser with no external API key required.
 
-You paste text (or upload a `.txt` file), adjust chunk size and overlap, and watch a five-stage pipeline light up: **Document → Chunking → Embeddings → Retrieval → Answer**. Each chunk card shows its token count alongside an 8-dimension embedding preview rendered as intensity-colored badges that visualize the sign and magnitude of the vector. When you ask a question, the retrieved chunks appear with score bars derived from cosine similarity, and the generated answer is assembled by scoring and reranking extracted sentences — no external LLM or API key required.
+You paste text (or upload a `.txt` file), adjust chunk size and overlap, and watch a five-stage pipeline light up: **Document → Chunking → Embeddings → Retrieval → Answer**. Each chunk card shows its token count alongside an **8-dimension embedding visualization** rendered as intensity-colored badges encoding the sign and magnitude of the vector. When you ask a question, the retrieved chunks appear with cosine similarity score bars, and the answer is assembled by scoring and reranking extracted sentences directly from the retrieved context.
 
-The system is built as a strict separation between a **FastAPI backend** (seven documented endpoints) and a **React + Vite frontend** that communicates through a typed Axios client. Both surfaces are independently runnable, Dockerized, and designed around the same stateless, composable pipeline.
+The system enforces a clean separation between a **FastAPI backend** (seven documented REST endpoints with Pydantic v2 validation) and a **React + Vite frontend** connected through a typed Axios client and a Vite dev proxy. Both surfaces are independently runnable, Dockerized, and deployed — backend on Render, frontend on Vercel.
 
 ---
 
 ## Table of Contents
 
+- [Live Demo](#live-demo)
+- [Run Locally](#run-locally)
 - [Why This Project Exists](#why-this-project-exists)
 - [Interactive Features](#interactive-features)
 - [Architecture Deep Dive](#architecture-deep-dive)
@@ -954,6 +964,32 @@ The `app.py` file provides a self-contained Streamlit interface that runs the sa
 ```bash
 streamlit run app.py
 ```
+
+---
+
+## Run Locally
+
+### Start Backend
+
+```bash
+cd smart-doc-chunker
+pip install -r requirements.txt
+uvicorn src.api:app --reload --host 0.0.0.0 --port 8000
+```
+
+Backend runs at: [http://localhost:8000](http://localhost:8000)
+
+Swagger docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+### Start Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
